@@ -10,7 +10,7 @@ const SqlCodeEditor: React.FC = () => {
   const { inputSqlCode, setInputSqlCode } = UseGlobalContext();
 
   const handleEditorChange: OnChange = (value, event) => {
-    setInputSqlCode(value);
+    setInputSqlCode(value || "");
   };
 
   return (

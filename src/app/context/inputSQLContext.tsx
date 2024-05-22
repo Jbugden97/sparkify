@@ -6,6 +6,7 @@ import {
   Dispatch,
   SetStateAction,
   useState,
+  ReactNode,
 } from "react";
 
 interface ContextProps {
@@ -28,7 +29,13 @@ const GlobalContext = createContext<ContextProps>({
   setLanguageSetting: (): string => "",
 });
 
-export const GlobalContextProvider = ({ children }) => {
+interface GlobalContextProviderProps {
+  children: ReactNode;
+}
+
+export const GlobalContextProvider: React.FC<GlobalContextProviderProps> = ({
+  children,
+}) => {
   const [inputSqlCode, setInputSqlCode] = useState<string>("");
   const [outputSqlCode, setOutputSqlCode] = useState<string>("");
   const [languageSetting, setLanguageSetting] = useState<string>("Spark SQL");
